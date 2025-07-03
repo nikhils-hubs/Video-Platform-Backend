@@ -26,7 +26,3 @@ A backend-focused project that reimagines the core of a video-sharing platform l
 - 🧠 Personalized recommendations (advanced feature)
 - 🛡️ API rate limiting and validation (coming soon)
 
----
-
-## 📂 Project Structure
-
