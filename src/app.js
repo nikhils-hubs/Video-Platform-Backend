@@ -14,4 +14,4 @@ app.use(express.static("public")); // VALUEABLE ASSESTS IN PUBLIC FILE
 app.use(cookieParser()); // KEEPING THE INFO IN USER BROWSER
 
 
-export default app;
+export default app; 
