@@ -54,11 +54,11 @@ userSchema.pre("save", async function(next){
     next();
 })
 
-userSchema.method.isPasswordCorrect = async function(password){
+userSchema.methods.isPasswordCorrect = async function(password){
     return await brycpt.compare(password,this.password);
 }
 
-userSchema.model.generateAccessToken = function()   
+userSchema.methods.generateAccessToken = function()   
 {
     return jwt.sign(
         {
@@ -72,7 +72,7 @@ userSchema.model.generateAccessToken = function()
         }
     )
 }
-userSchema.method.generateRefreshToken = function()
+userSchema.methods.generateRefreshToken = function()
 {
     return jwt.sign(
         {
@@ -85,4 +85,14 @@ userSchema.method.generateRefreshToken = function()
     )
 }
 
+
+
+// const user = await User.create({...}); // after saving user
+
+// const accessToken = user.generateAccessToken();   // ✅
+// const refreshToken = user.generateRefreshToken(); // ✅
+
+// console.log("Access Token:", accessToken); // ✅ should be a valid token
+
 export const User = mongoose.model("User",userSchema);
+
