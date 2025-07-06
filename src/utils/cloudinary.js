@@ -24,6 +24,6 @@ cloudinary.config({
         }
     }
 
-    export default uploadOnCloudinary;
+    export  {uploadOnCloudinary};
 
     

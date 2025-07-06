@@ -20,17 +20,22 @@ app.use(cors({
   origin: process.env.ORIGIN_CORS, // or your frontend origin
   credentials: true
 }));
-app.use(express.json({limit: "16kb"}));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan("dev"));
 
+import userRouter from "./routes/user.routes.js";
+// Routes
+app.use("/api/v1/users", userRouter);
+console.log("✅ Mounted /api/v1/users route");
+
+//ERROR HANDLING 
+
 const createVersionRoute = (route, version = "v1") => "/api/" + version + "/" + route;
 
 
-/**
- * Error Handing
- */
+
 app.use((err, req, res, next) => {
   console.log(err);
 
@@ -55,10 +60,6 @@ app.use((req, res,next,err) => {
 
 
 //improting routes
-import userRouter from "./routes/user.routes.js";
-// Routes
-app.use("/api/v1/users", userRouter);
-console.log("✅ Mounted /api/v1/users route");
 
 
 

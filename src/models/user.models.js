@@ -1,5 +1,5 @@
 import mongoose, {Schema} from "mongoose";
-import brycpt from "brycpt";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
@@ -50,12 +50,12 @@ const userSchema = new Schema(
 
 userSchema.pre("save", async function(next){
     if(!this.isModified("password")) return next();
-    this.password = await brycpt.hash(this.password,10);
+    this.password = await bcrypt.hash(this.password,10);
     next();
 })
 
 userSchema.methods.isPasswordCorrect = async function(password){
-    return await brycpt.compare(password,this.password);
+    return await bcrypt.compare(password,this.password);
 }
 
 userSchema.methods.generateAccessToken = function()   
@@ -94,5 +94,6 @@ userSchema.methods.generateRefreshToken = function()
 
 // console.log("Access Token:", accessToken); // ✅ should be a valid token
 
-export const User = mongoose.model("User",userSchema);
+ const User = mongoose.model("User",userSchema);
+ export {User}
 
