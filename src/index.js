@@ -7,7 +7,7 @@ import router from "./routes/user.routes.js"
 
 connectDB()
 .then(() => {
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3001;
     // console.log("APP:", app);
     // app.listen(PORT, () => {
     //     console.log(`server is runing at ${PORT}`);
