@@ -1,26 +1,25 @@
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
 import cookieParser from "cookie-parser";
+
 
 const app = express();
 
+// Middleware setup
 app.use(cors({
-    origin : process.env.ORIGIN_CORS ||"*",
-    credentials: true,
-}))
-app.use(express.json({limit: "16kb"})); // FOR JSON FILE TO GO ON REQ.BODY
-app.use(express.urlencoded({limit: "16kb"})); // FOR DATA COMING FROM URL
-app.use(express.static("public")); // VALUEABLE ASSESTS IN PUBLIC FILE
-app.use(cookieParser()); // KEEPING THE INFO IN USER BROWSER
+  origin: "http://localhost:3000", // or your frontend origin
+  credentials: true
+}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(morgan("dev"));
+
+//improting routes
+import userRouter from "./routes/user.routes.js";
+// Routes
+app.use("/api/v1/users", userRouter);
 
 
-// IMPORTING ROUTES
-import router from "./routes/user.routes.js";
-
-
-
-app.use("/api/v1/users",router);
-
-// http://localhost:8000/api/v1/users/register
-
-export default app; 
+export default app;

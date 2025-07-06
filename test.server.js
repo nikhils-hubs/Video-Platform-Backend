@@ -1,17 +1,11 @@
-import express from 'express';
+// import express from "express";
 
-const app = express();
-app.use(express.json());
+// const app = express();
 
-app.get('/', (req, res) => {
-    res.json({ message: 'Test server working!' });
-});
+// app.get("/", (req, res) => {
+//   res.send("✅ Minimal app working");
+// });
 
-app.post('/test', (req, res) => {
-    res.json({ message: 'POST request working!', body: req.body });
-});
-
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Test server running on port ${PORT}`);
-});
+// app.listen(3000, () => {
+//   console.log("🚀 Minimal Express running on http://localhost:3000");
+// });
