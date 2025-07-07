@@ -156,7 +156,7 @@ const LogoutUser = asyncHandler( async (req,res)=> {
     )
     const options = {
             httpOnly: true,
-            secure: true,
+            secure: false,
         }
     return res
     .status(200)
