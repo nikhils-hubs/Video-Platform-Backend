@@ -9,7 +9,7 @@ A backend-focused project that reimagines the core of a video-sharing platform l
 - **Node.js** - Backend runtime
 - **Express.js** - Server framework
 - **MongoDB Atlas** - Cloud NoSQL Database
-- **Mongoose** - ODM for MongoDB
+- **Mongoose** - ORM for MongoDB
 - **Dotenv** - Environment variable handling
 - **Postman** - For API testing
 
