@@ -19,10 +19,11 @@ A backend-focused project that reimagines the core of a video-sharing platform l
 
 - 📁 User registration & authentication (JWT-based)
 - 🎥 Upload, update, and delete videos
+- (comming soon):-
 - ❤️ Like/dislike system
 - 💬 Commenting system
 - 🔎 Search and filter videos by tags/category
 - 📊 Video views tracking
 - 🧠 Personalized recommendations (advanced feature)
-- 🛡️ API rate limiting and validation (coming soon)
+- 🛡️ API rate limiting and validation
 
